@@ -21,5 +21,14 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@src': path.resolve(__dirname, 'src')
     }
-  }
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://me.dev.fedr.club",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, "")
+      },
+    }
+  },
 })
