@@ -1,20 +1,32 @@
-import { Text } from "@src/atoms/text"
-import { ChannelItem } from "@src/molecules/channelItem"
+import { MenuBlockSkeleton } from "@src/atoms/menuIBlock"
+import { MenuItem } from "@src/molecules/menuItem"
 
-interface fakeDataItem {
-    name : string,
-    id : number
+interface DataItem {
+    name: string,
+    id: number
 }
 
-export const ChannelsList = ({ data } : { data: fakeDataItem[] }) => {
+interface ChannelsListProps {
+    isLoading: boolean
+    data: DataItem[]
+}
+
+export const ChannelsList = ({ data, isLoading }: ChannelsListProps) => {
     return (
-        <div className="w-full flex flex-col items-start justify-start gap-3">
-            <Text color="red-600" size="large" weight="bold">Les channels de cette communauté</Text>
-            {
-                data.map((item, index) => (
-                    <ChannelItem id={item.id} name={item.name} key={index} />
-                ))
-            }
+        <div className="w-full overflow-x-auto scrollbar-hide">
+            <div className="flex flex-row items-center justify-start gap-3 min-w-min">
+                {
+                    isLoading ? (
+                        Array.from({ length: 5 }).map((_, index) => (
+                            <MenuBlockSkeleton key={index} />
+                        ))
+                    ) : (
+                        data.map((item, index) => (
+                            <MenuItem key={index} text={item.name} redirectTo={`/${item.id}`} />
+                        ))
+                    )
+                }
+            </div>
         </div>
     )
 }

@@ -13,7 +13,7 @@ export const LogoutButton = () => {
     }
 
     return (
-        <Button onClick={handleLogout}>
+        <Button onClick={handleLogout} className="bg-red-400 hover:bg-red-500 w-full transition-all duration-300">
             Se déconnecter
         </Button>
     )
