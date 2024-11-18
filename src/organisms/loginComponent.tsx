@@ -12,7 +12,7 @@ interface FormProps {
     isPending: boolean
 }
 
-export const LoginComponent = ({ onSubmit, email, password, onEmailChange, onPasswordChange, isError, error, isPending }: FormProps) => {
+export const LoginComponent: React.FC<FormProps> = ({ onSubmit, email, password, onEmailChange, onPasswordChange, isError, error, isPending }) => {
     return (
         <div>
             <Text color="black" size="large" weight="bold">Login</Text>
