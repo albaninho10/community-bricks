@@ -1,5 +1,5 @@
 import { Text } from "@src/atoms/text"
-import { ChannelItem } from "@components/molecules/channelItem"
+import { ChannelItem } from "@src/molecules/channelItem"
 
 interface fakeDataItem {
     name : string,

@@ -2,7 +2,8 @@
 // Architecture structre design pattern : https://blog-ux.com/quest-ce-que-latomic-design/
 
 import { useAllChannels } from "@api/community.queries";
-import { ChannelsList } from "@components/organisms/channelsList";
+import { ChannelsList } from "@src/organisms/channelsList";
+import { LogoutButton } from "@src/organisms/logoutButton";
 import { useState } from "react";
 
 export const HomePage = () => {
@@ -54,6 +55,7 @@ export const HomePage = () => {
 
             <ChannelsList data={fakeData} />
 
+            <LogoutButton />
         </div>
     );
 }

@@ -19,8 +19,8 @@ export const Text: React.FC<TextProps> = ({ children, size = 'medium', weight = 
   const colorClass = color ? `text-${color}` : 'text-black';
 
   return (
-    <span className={`${sizeClass} ${weightClass} ${colorClass}`}>
+    <p className={`${sizeClass} ${weightClass} ${colorClass}`}>
       {children}
-    </span>
+    </p>
   );
 };
