@@ -1,4 +1,4 @@
-interface Comment {
+export interface Comment {
     id?: number;
     type: string;
     post_id: number;
@@ -19,7 +19,7 @@ interface Comment {
     is_signaled?: boolean;
 }
 
-export interface Message {
+export interface Post {
     id?: number | string;
     owner_uuid: string;
     tempId?: string;
@@ -60,5 +60,5 @@ export interface ChannelInterface {
     created_at?: string;
     created_by?: string;
     is_displayed?: boolean;
-    messages: Message[];
+    posts: Post[];
 }
