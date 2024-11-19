@@ -20,7 +20,8 @@ export default defineConfig({
       '@interfaces': path.resolve(__dirname, 'src/interfaces'),
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@src': path.resolve(__dirname, 'src')
-    }
+    },
+    dedupe: ['@tiptap/core', '@tiptap/react']
   },
   server: {
     proxy: {
@@ -31,4 +32,18 @@ export default defineConfig({
       },
     }
   },
+  optimizeDeps: {
+    include: [
+      '@tiptap/extension-document',
+      '@tiptap/extension-mention',
+      '@tiptap/extension-paragraph',
+      '@tiptap/extension-text',
+      '@tiptap/extension-image',
+      '@tiptap/extension-bold',
+      '@tiptap/extension-italic',
+      '@tiptap/extension-strike',
+      '@tiptap/extension-link',
+      '@tiptap/html'
+    ]
+  }
 })
