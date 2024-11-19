@@ -1,7 +1,8 @@
 import {
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ChannelPage
 } from "@pages";
 import {
     AuthLayout
@@ -17,6 +18,7 @@ export enum ProtectedRoutes {
     authLayout = '/*',
     home = '',
     test = 'test',
+    channel = 'channel'
 }
 
 export const Routes = {
@@ -36,6 +38,7 @@ export const useAppRoutes = () => {
                 children: [
                     { path: Routes.home, element: <HomePage /> },
                     { path: Routes.test, element: <HomePage /> },
+                    { path: Routes.channel, element: <ChannelPage />},
                 ]
             },
 
