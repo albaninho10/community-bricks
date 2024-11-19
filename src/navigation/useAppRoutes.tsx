@@ -18,7 +18,7 @@ export enum ProtectedRoutes {
     authLayout = '/*',
     home = '',
     test = 'test',
-    channel = 'channel'
+    channelId = ':channelId'
 }
 
 export const Routes = {
@@ -38,7 +38,7 @@ export const useAppRoutes = () => {
                 children: [
                     { path: Routes.home, element: <HomePage /> },
                     { path: Routes.test, element: <HomePage /> },
-                    { path: Routes.channel, element: <ChannelPage />},
+                    { path: Routes.channelId, element: <ChannelPage />},
                 ]
             },
 

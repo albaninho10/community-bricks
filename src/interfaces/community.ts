@@ -19,7 +19,7 @@ interface Comment {
     is_signaled?: boolean;
 }
 
-interface Message {
+export interface Message {
     id?: number | string;
     owner_uuid: string;
     tempId?: string;
