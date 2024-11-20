@@ -1,5 +1,6 @@
 import { Comment, Post, ChannelInterface } from "@interfaces/community"
 import { create } from "zustand";
+import { useActivityStore } from "./activityStore";
 
 interface PostState {
     channels: Record<string, ChannelInterface>;
@@ -28,10 +29,16 @@ export const usePostStore = create<PostState>((set) => ({
             const channelId = post.channel_id.toString();
             const channel = state.channels[channelId] || { posts: [], new_posts_count: "0" };
             const existingIndex = channel.posts.findIndex(post => post.id === post.id || post.tempId === post.postId);
-            let newPostsCount = parseInt(channel.new_posts_count || "0");
             if (existingIndex === -1){
                 // Nouveau post
-                // Gérer le lastVisit
+                const activityStore = useActivityStore.getState();
+                const lastVisit = activityStore.channelTimestamps.permanent[channelId] || 0;
+                const messageDate = new Date(post.created_at).getTime();
+
+                let newPostsCount = parseInt(channel.new_posts_count || "0");
+                if (messageDate > lastVisit) {
+                    newPostsCount += 1;
+                }
                 return {
                     channels: {
                         ...state.channels,
