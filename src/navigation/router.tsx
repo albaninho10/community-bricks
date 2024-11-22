@@ -4,6 +4,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 
 import { useAppRoutes } from "@navigation/useAppRoutes";
 import { queryClient } from "@api/queryConfig";
+import { useSocket } from "@src/websocket/useSocket";
 
 type CurrentRouteProps = {
     currentRoutes: RouteObject[];
@@ -21,7 +22,7 @@ const CurrentRoute = ({ currentRoutes }: CurrentRouteProps) => {
 const Routes = () => {
 
     const { config } = useAppRoutes();
-
+    useSocket();
     return (
         <div className="relative w-full flex flex-1 h-webkit overflow-hidden safeAreaBottom">
             <CurrentRoute currentRoutes={config} />

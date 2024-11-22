@@ -26,7 +26,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://me.dev.fedr.club",
+        target: "https://me.fedr.club",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "")
       },
