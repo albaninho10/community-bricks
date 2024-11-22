@@ -26,7 +26,6 @@ export const usePostStore = create<PostState>((set) => ({
     channels: {},
     addPost: (post) => {
         set((state) => {
-            console.log("tets")
             const channelId = post.channel_id.toString();
             const channel = state.channels[channelId] || { posts: [], new_posts_count: "0" };
             const existingIndex = channel.posts.findIndex(post => post.id === post.id || post.tempId === post.postId);

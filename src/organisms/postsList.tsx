@@ -1,10 +1,10 @@
 import { MenuBlockSkeleton } from "@src/atoms/menuIBlock"
 import { PostItem } from "@src/molecules/postItem"
-import { Message } from "@interfaces/community"
+import { Post } from "@interfaces/community"
 
 interface PostsListProps {
     isLoading: boolean
-    data: Message[]
+    data: Post[]
 }
 
 export const PostsList = ({ data, isLoading }: PostsListProps) => {

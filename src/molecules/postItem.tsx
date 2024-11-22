@@ -8,12 +8,12 @@ import Italic from '@tiptap/extension-italic';
 import Strike from '@tiptap/extension-strike';
 import Link from '@tiptap/extension-link';
 import { generateHTML } from '@tiptap/html';
-import { Message } from '@interfaces/community';
+import { Post } from '@interfaces/community';
 import { useMemo } from 'react';
 
-interface MessageProps {
+interface PostProps {
     userName: string;
-    content: Message;
+    content: Post;
 }
 
 const postContentStyles = `
@@ -22,7 +22,7 @@ const postContentStyles = `
   }
 `;
 
-export const PostItem: React.FC<MessageProps> = ({ userName, content }) => {
+export const PostItem: React.FC<PostProps> = ({ userName, content }) => {
 
     const [contentHtml, imageUrls] = useMemo(() => {
         let html = '';
